@@ -3,6 +3,8 @@ c++-lib/build
 c++-lib/install
 *.bs
 *.xsc
+Color.c
+Color.o
 Makefile
 MYMETA.json
 MYMETA.yml

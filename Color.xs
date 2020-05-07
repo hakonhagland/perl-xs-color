@@ -9,6 +9,11 @@
 #include "ppport.h"       // allow the module to be built using older versions of Perl
 #include "Color.hpp"
 
+
+MODULE = Color  PACKAGE = Color
+
+PROTOTYPES: DISABLE
+
 TYPEMAP: <<HERE
 TYPEMAP
 Color *  O_OBJECT
@@ -19,17 +24,15 @@ O_OBJECT
 
 INPUT
 O_OBJECT
-    if( sv_isobject($arg) && (SvTYPE(SvRV($arg)) == SVt_PVMG) )
+	if( sv_isobject($arg) && (SvTYPE(SvRV($arg)) == SVt_PVMG) ) {
         $var = ($type)SvIV((SV*)SvRV( $arg ));
-    else{
+    }
+    else {
         warn("${Package}::$func_name() -- " .
             "$var is not a blessed SV reference");
         XSRETURN_UNDEF;
     }
 HERE
-
-MODULE = Color  PACKAGE = Color
-PROTOTYPES: DISABLE
 
 int
 Color::blue()
