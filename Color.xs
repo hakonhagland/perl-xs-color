@@ -28,8 +28,8 @@ O_OBJECT
         $var = ($type)SvIV((SV*)SvRV( $arg ));
     }
     else {
-        warn("${Package}::$func_name() -- " .
-            "$var is not a blessed SV reference");
+        warn(\"${Package}::$func_name() -- \" 
+            \"$var is not a blessed SV reference\");
         XSRETURN_UNDEF;
     }
 HERE
