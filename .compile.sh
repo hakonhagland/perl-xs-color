@@ -5,5 +5,7 @@ cd c++-lib
 cd ..
 
 #make clean
+#export PERL_CXX=g++
 perl Makefile.PL
 make
+#make install
